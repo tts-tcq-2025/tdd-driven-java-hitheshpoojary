@@ -18,18 +18,18 @@ the first line is optional. all existing scenarios should still be supported
 
 ## Test Specification 
 
-| Test Case ID | Description                      | Input                  | Expected Output / Behavior                     |
-| ------------ | -------------------------------- | ---------------------- | ---------------------------------------------- |
-| TC-01        | Empty string                     | `""`                   | `0`                                            |
-| TC-02        | Single digit                     | `"1"`                  | `1`                                            |
-| TC-03        | Two numbers                      | `"1,2"`                | `3`                                            |
-| TC-04        | Unknown amount of numbers        | `"1,2,3,4"`            | `10`                                           |
-| TC-05        | Newline as delimiter             | `"1\n2,3"`             | `6`                                            |
-| TC-06        | Bad formatting (comma + newline) | `"1,\n2"`              | Not handled                                    |
-| TC-07        | Custom delimiter                 | `"//;\n1;2"`           | `3`                                            |
-| TC-08        | Ignore numbers greater than 1000 | `"2,1001"`             | `2`                                            |
-| TC-09        | Multi-character delimiter        | `"//[***]\n1***2***3"` | `6`                                            |
-| TC-10        | Negative numbers                 | `"-1,-2"`              | Exception with all negatives listed: `"-1,-2"` |
+| Test Case ID | Description                      | Input                  | Expected Output / Behavior                     | Comment                                              |
+| ------------ | -------------------------------- | ---------------------- | ---------------------------------------------- | ---------------------------------------------------- |
+| TC-01        | Empty string                     | `""`                   | `0`                                            | Handles case where no numbers are provided.          |
+| TC-02        | Single digit                     | `"1"`                  | `1`                                            | Should return the number itself.                     |
+| TC-03        | Two numbers                      | `"1,2"`                | `3`                                            | Adds two comma-separated numbers.                    |
+| TC-04        | Unknown amount of numbers        | `"1,2,3,4"`            | `10`                                           | Supports summing multiple numbers.                   |
+| TC-05        | Newline as delimiter             | `"1\n2,3"`             | `6`                                            | Supports both commas and newlines as separators.     |
+| TC-06        | Bad formatting (comma + newline) | `"1,\n2"`              | Not handled                                    | Shows input with invalid delimiter sequence.         |
+| TC-07        | Custom delimiter                 | `"//;\n1;2"`           | `3`                                            | Allows defining a custom single-character delimiter. |
+| TC-08        | Ignore numbers greater than 1000 | `"2,1001"`             | `2`                                            | Numbers > 1000 should be ignored.                    |
+| TC-09        | Multi-character delimiter        | `"//[***]\n1***2***3"` | `6`                                            | Supports custom delimiters with multiple characters. |
+| TC-10        | Negative numbers                 | `"-1,-2"`              | Exception with all negatives listed: `"-1,-2"` | Throws error when negatives are included.            |
 
 
 
