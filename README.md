@@ -16,7 +16,20 @@ the first line is optional. all existing scenarios should still be supported
 - Numbers bigger than 1000 should be ignored, so adding 2 + 1001 = 2
 - Delimiters can be of any length with the following format: “//[delimiter]\n” for example: “//[***]\n1***2***3” should return 6
 
-## Tasks
+## Test Specification 
+
+| Test Case ID | Description                      | Input                  | Expected Output / Behavior                     |
+| ------------ | -------------------------------- | ---------------------- | ---------------------------------------------- |
+| TC-01        | Empty string                     | `""`                   | `0`                                            |
+| TC-02        | Single digit                     | `"1"`                  | `1`                                            |
+| TC-03        | Two numbers                      | `"1,2"`                | `3`                                            |
+| TC-04        | Unknown amount of numbers        | `"1,2,3,4"`            | `10`                                           |
+| TC-05        | Newline as delimiter             | `"1\n2,3"`             | `6`                                            |
+| TC-06        | Bad formatting (comma + newline) | `"1,\n2"`              | Not handled                                    |
+| TC-07        | Custom delimiter                 | `"//;\n1;2"`           | `3`                                            |
+| TC-08        | Ignore numbers greater than 1000 | `"2,1001"`             | `2`                                            |
+| TC-09        | Multi-character delimiter        | `"//[***]\n1***2***3"` | `6`                                            |
+| TC-10        | Negative numbers                 | `"-1,-2"`              | Exception with all negatives listed: `"-1,-2"` |
 
 
 
