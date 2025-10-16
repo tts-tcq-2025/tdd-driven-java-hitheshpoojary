@@ -21,6 +21,8 @@ class StringCalculatorTest {
     void testMultipleNumbers() {
         assertEquals(10, calculator.add("1,2,3,4"));
     }
-    
-
+    @Test
+    void testNewlineDelimiter() {
+        assertEquals(6, calculator.add("1\n2,3"));
+    }
 }
