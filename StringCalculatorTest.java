@@ -41,5 +41,10 @@ class StringCalculatorTest {
     void testMultiCharacterDelimiter() {
         assertEquals(6, calculator.add("//[***]\n1***2***3"));
     }
-    
+    @Test
+    void testNegativeNumbers() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> calculator.add("-1,-2"));
+        assertTrue(exception.getMessage().contains("-1"));
+        assertTrue(exception.getMessage().contains("-2"));
+    }
 }
