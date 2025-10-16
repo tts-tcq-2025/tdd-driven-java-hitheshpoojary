@@ -13,7 +13,10 @@ class StringCalculatorTest {
     void testSingleNumber() {
         assertEquals(1, calculator.add("1"));
     }
-    
+    @Test
+    void testTwoNumbers() {
+        assertEquals(3, calculator.add("1,2"));
+    }
 
 
 }
